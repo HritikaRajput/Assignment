@@ -1,0 +1,57 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #00b7ff;
+}
+.addCommentForm {
+  width: 700px;
+}
+input[type =text] {
+  width: 400px;
+  margin-left: 38px;
+  
+}
+textarea {
+  width: 400px;
+  height: 100px;
+  margin-left: 15px;
+}
+input[type =button],
+input[type =submit] {
+  clear: both;
+  margin-left: 85px;
+  display: block;
+}
+.label {
+  text-align: right !important;
+  display: block;
+  float: left;
+}
+#comments .name {
+  float: left;
+  font-weight: bold;
+  padding-inline-start: 5px;
+}
+#comments .created_at {
+  float: right;
+  font-size: x-small;
+}
+#comments .content {
+  clear: both;
+  font-style: italic;
+  padding-top: 5px;
+}
+#comments .upvote {
+  color: #000;
+  text-decoration: none;
+  margin-right: 5px;
+  font-weight: bold;
+}
+#comments .downvote {
+  color: #000;
+  text-decoration: none;
+  margin-right: 50px;
+  font-weight: bold;
+}

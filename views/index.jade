@@ -1,0 +1,51 @@
+extends layout
+
+block content
+  h1= title
+  div.addCommentForm
+        form( method="post", action="/create")
+            div
+                div
+                    span.label Name :
+                    input(type="text", class="nameTxt", name="username")
+                div
+                    span.label Comment :
+                    textarea(name="comment")
+                div#addCommentSubmit
+                    input(type="submit", value="Post Comment")
+  br
+  br
+  #comments
+    - each comment in comments
+      div.comment
+        div.name= comment.username
+        div.created_at= comment.created
+        br
+        div.content= comment.content 
+        br
+        div.upvote= comment.upvote
+          div.upvoteForm
+            form( method="post", action="/upvote")
+                div
+                    div
+                        input(type="hidden", name="username", value=comment.username)
+                    div
+                        input(type="hidden", name="content", value=comment.content)
+                    div
+                        input(type="hidden", name="upvote", value=comment.upvote)
+                    div#upvoteSubmit
+                        input(type="submit", value="Upvotes")
+        div.downvote= comment.downvote
+          div.downvoteForm
+            form( method="post", action="/downvote")
+                div
+                    div
+                        input(type="hidden", name="username", value=comment.username)
+                    div
+                        input(type="hidden", name="content", value=comment.content)
+                    div
+                        input(type="hidden", name="upvote", value=comment.upvote)
+                    div#downvoteSubmit
+                        input(type="submit", value="Downvotes")
+        hr
+  
