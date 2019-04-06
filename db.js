@@ -11,4 +11,4 @@ var Comment = new Schema({
  
 mongoose.model( 'Comment', Comment );
  
-mongoose.connect( 'mongodb://localhost/app' );
+mongoose.connect( 'mongodb://localhost/data' );
