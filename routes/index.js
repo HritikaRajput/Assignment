@@ -28,13 +28,13 @@ exports.create = function ( req, res ){
 };
 
 exports.upvote = function ( req, res ){
-  Comment.findOneAndUpdate({"username":req.body.username, "content":req.body.content},{$inc:{"upvote":1}},{returnNewDocument: true},function( err, comment, count ){
+  Comment.findOneAndUpdate({"_id": req.body.id},{$inc:{"upvote":1}},{returnNewDocument: true},function( err, comment, count ){
     res.redirect( '/' );
   });
 };
 
 exports.downvote = function ( req, res ){
-  Comment.findOneAndUpdate({"username":req.body.username, "content":req.body.content},{$inc:{"downvote":1}},{returnNewDocument: true},function( err, comment, count ){
+  Comment.findOneAndUpdate({"_id":req.body.id},{$inc:{"downvote":1}},{returnNewDocument: true},function( err, comment, count ){
     res.redirect( '/' );
   });
 };

@@ -3,16 +3,17 @@ extends layout
 block content
   h1= title
   div.addCommentForm
+  div(class="container")
         form( method="post", action="/create")
             div
                 div
                     span.label Name :
-                    input(type="text", class="nameTxt", name="username")
+                    input(type="text", required="required", class="nameTxt", name="username")
                 div
                     span.label Comment :
-                    textarea(name="comment")
+                    textarea(name="comment", required="required")
                 div#addCommentSubmit
-                    input(type="submit", value="Post Comment")
+                    input(type="submit", required="required", value="Post Comment")
   br
   br
   #comments
@@ -27,25 +28,31 @@ block content
           div.upvoteForm
             form( method="post", action="/upvote")
                 div
-                    div
+                    //div
                         input(type="hidden", name="username", value=comment.username)
                     div
+                        input(type="hidden", name="id", value=comment._id)
+                    //div
                         input(type="hidden", name="content", value=comment.content)
-                    div
+                    //div
                         input(type="hidden", name="upvote", value=comment.upvote)
                     div#upvoteSubmit
-                        input(type="submit", value="Upvotes")
+                        input(type="submit", value="Upvote",style="font-size:7pt;color:white;margin-left:1px;background-color:#4CAF50;border:2px solid #4CAF50;padding:3px")
+
         div.downvote= comment.downvote
           div.downvoteForm
             form( method="post", action="/downvote")
                 div
-                    div
+                    //div
                         input(type="hidden", name="username", value=comment.username)
                     div
+                        input(type="hidden", name="id", value=comment._id)
+                    //div
                         input(type="hidden", name="content", value=comment.content)
-                    div
-                        input(type="hidden", name="upvote", value=comment.upvote)
+                    //div
+                        input(type="hidden", name="downvote", value=comment.downvote)
                     div#downvoteSubmit
-                        input(type="submit", value="Downvotes")
+                        input(type="submit", value="Downvote",style="font-size:7pt;color:white;margin-left:1px;background-color: #b30000;border:2px solid #b30000;padding:3px")
         hr
+br
   
